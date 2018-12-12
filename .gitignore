@@ -4,3 +4,4 @@
 !.gitignore
 .settings/
 .gradle/
+application.properties
