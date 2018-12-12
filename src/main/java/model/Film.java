@@ -21,7 +21,7 @@ public class Film implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String titre;
-	private String Genre;
+	private String genre;
 	private String real;
 	private Integer duree;
 	private Integer annee;
@@ -30,7 +30,7 @@ public class Film implements Serializable {
 		super();
 		this.id = id;
 		this.titre = titre;
-		Genre = genre;
+		this.genre = genre;
 		this.real = real;
 		this.duree = duree;
 		this.annee = annee;
@@ -40,13 +40,14 @@ public class Film implements Serializable {
 	
 	public Film() {
 		super();
+		
 	}
 
 
 
 	@Override
 	public String toString() {
-		return "Film [id=" + id + ", titre=" + titre + ", Genre=" + Genre + ", real=" + real + ", duree=" + duree
+		return "Film [id=" + id + ", titre=" + titre + ", genre=" + genre + ", real=" + real + ", duree=" + duree
 				+ ", annee=" + annee + "]";
 	}
 
@@ -54,7 +55,7 @@ public class Film implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Genre == null) ? 0 : Genre.hashCode());
+		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
 		result = prime * result + ((annee == null) ? 0 : annee.hashCode());
 		result = prime * result + ((duree == null) ? 0 : duree.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -72,10 +73,10 @@ public class Film implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
-		if (Genre == null) {
-			if (other.Genre != null)
+		if (genre == null) {
+			if (other.genre != null)
 				return false;
-		} else if (!Genre.equals(other.Genre))
+		} else if (!genre.equals(other.genre))
 			return false;
 		if (annee == null) {
 			if (other.annee != null)
@@ -122,11 +123,11 @@ public class Film implements Serializable {
 	}
 
 	public String getGenre() {
-		return Genre;
+		return genre;
 	}
 
 	public void setGenre(String genre) {
-		Genre = genre;
+		this.genre = genre;
 	}
 
 	public String getReal() {
