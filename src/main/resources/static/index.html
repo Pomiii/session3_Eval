@@ -9,7 +9,28 @@
 	</head>
 	<body>
 		<h1>Bienvenue sur notre Selection de Film</h1>
-	</body>
+		
+		<form class="form-horizontal" id="film-form">
+        <div class="form-group form-group-lg">
+            <label class="col-sm-2 control-label">id</label>
+            <div class="col-sm-4">
+                <input type="text" placeholder="titre" title="titre"
+                    class="form-control" id="titre" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <button id="btn-get" class="btn btn-primary btn-lg"
+                    title="Rechercher">GET</button>
+            </div>
+        </div>
+	    </form>
+	    <div id = "resultat"></div>
+	    
+	    <script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
+	    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js%22%3E"></script>
+	    <script type="text/javascript" src="js/apprenant.js"></script>
+		</body>
 	<footer>
 	</footer>
 </html>
