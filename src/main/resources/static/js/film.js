@@ -14,7 +14,7 @@ $(document).ready(function() {
 
         $.ajax({// .ajax pour ne pas recharger la page mais juste le resultat de la fonction
             type : "GET",
-            contentType : "application/json",
+            contentType : "FilmApplication/json",
             url : "/api/bytitre/" + titre,
             data : {},// tableau vide pour recevoir la reponse body du controleur
             dataType : 'json',
@@ -28,6 +28,7 @@ $(document).ready(function() {
                 $("#resultat").html(json);
                 $("#id").val(data.id);
                 $("#titre").val(data.titre);
+                $("#genre").val(data.genre);
                 $("#real").val(data.real);
                 $("#annee").val(data.annee);
                 $("#duree").val(data.duree);

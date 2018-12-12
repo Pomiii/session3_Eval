@@ -9,9 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FilmApplication {
 	
-	//@Autowired
-	//private FilmRepository filmRepo;
-	
 
 	public static void main(String[] args) {
 		SpringApplication.run(FilmApplication.class, args);		

@@ -18,47 +18,39 @@
 		</div>
 		
 		<form>
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Ajouter un film : </label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  	</div>
-  		<div class="col-sm-12, btn-group" role="group" aria-label="Basic example">
-		<button id="btn-post" class="btn btn-primary btn-lg">Ajouter</button>
-	</div>
-  <div class="form-group">
-    <label for="exampleFormControlSelect1">Liste de film :</label>
-    <select class="form-control" id="exampleFormControlSelect1">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-</form>
-		
-		<form class="form-horizontal" id="film-form">
-        <div class="form-group form-group-lg">
-            <label class="col-sm-2 control-label">Votre saisie :</label>
-            <div class="col-sm-4">
-                <input type="text" placeholder="titre" title="titre"
-                    class="form-control" id="titre" />
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-12, btn-group" role="group" aria-label="Basic example">
-			  <button id="btn-post" class="btn btn-primary btn-lg">Ajouter</button>
-			  <button id="btn-put" class="btn btn-primary btn-lg">Modifier</button>
-			  <button id="btn-delete" class="btn btn-primary btn-lg">Effacer</button>
-			  <button id="btn-get" class="btn btn-primary btn-lg" title="Rechercher">Afficher</button>
+<!--  Barre et bouton pour Ajouter un film -->
+		  <div class="form-group">
+		    <label for="exampleFormControlInput1">Ajouter un film : </label>
+		    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ajouter un film">
+		  </div>
+		  	<div class="col-sm-12, btn-group" role="group" aria-label="Basic example">
+				<button id="btn-post" class="btn btn-primary btn-lg">Ajouter</button>
 			</div>
-        </div>
-	    </form>
-	    <div id = "resultat"> Résultat</div>
+<!--  Bouton et Barre qui affichent les films pour les effacer -->			
+		  <div class="form-group">
+		    <label for="exampleFormControlSelect2">Liste de film à effacer :</label>
+		    <select multiple class="form-control" id="exampleFormControlSelect2">
+		      <option>1</option>
+		      <option>2</option>
+		      <option>3</option>
+		      <option>4</option>
+		      <option>5</option>
+		    </select>
+		  </div>
+		  <div class="col-sm-12, btn-group" role="group" aria-label="Basic example">
+				<button id="btn-post" class="btn btn-primary btn-lg">Effacer</button>
+		  </div>
+<!--  Ajouter un film -->
+		  <div class="form-group">
+		    <label for="exampleFormControlInput1">Modifier un film : </label>
+		    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Modifie le titre de ton film">
+		  </div>
+		  	<div class="col-sm-12, btn-group" role="group" aria-label="Basic example">
+				<button id="btn-post" class="btn btn-primary btn-lg">Modifier</button>
+			</div>
+		</form>
+	
+	    <div id = "resultat">Résultat</div>
 	    
 	    <script type="text/javascript" src="webjars/jquery/2.2.4/jquery.min.js"></script>
 	    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.13/datatables.min.js%22%3E"></script>
