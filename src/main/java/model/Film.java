@@ -6,8 +6,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Films")
 public class Film implements Serializable {
 
 	/**
@@ -17,60 +19,35 @@ public class Film implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
 	private String titre;
 	private String Genre;
 	private String real;
 	private Integer duree;
 	private Integer annee;
-		
-	public Film(String titre, String genre, String real, Integer duree, Integer annee) {
+	
+	public Film(Integer id, String titre, String genre, String real, Integer duree, Integer annee) {
 		super();
+		this.id = id;
 		this.titre = titre;
 		Genre = genre;
 		this.real = real;
 		this.duree = duree;
 		this.annee = annee;
 	}
-		
+
+	
+	
 	public Film() {
 		super();
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Film [titre=" + titre + ", Genre=" + Genre + ", real=" + real + ", duree=" + duree + ", annee=" + annee
-				+ "]";
-	}
-		
-	public String getTitre() {
-		return titre;
-	}
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
-	public String getGenre() {
-		return Genre;
-	}
-	public void setGenre(String genre) {
-		Genre = genre;
-	}
-	public String getReal() {
-		return real;
-	}
-	public void setReal(String real) {
-		this.real = real;
-	}
-	public Integer getDuree() {
-		return duree;
-	}
-	public void setDuree(Integer duree) {
-		this.duree = duree;
-	}
-	public Integer getAnnee() {
-		return annee;
-	}
-	public void setAnnee(Integer annee) {
-		this.annee = annee;
+		return "Film [id=" + id + ", titre=" + titre + ", Genre=" + Genre + ", real=" + real + ", duree=" + duree
+				+ ", annee=" + annee + "]";
 	}
 
 	@Override
@@ -80,6 +57,7 @@ public class Film implements Serializable {
 		result = prime * result + ((Genre == null) ? 0 : Genre.hashCode());
 		result = prime * result + ((annee == null) ? 0 : annee.hashCode());
 		result = prime * result + ((duree == null) ? 0 : duree.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((real == null) ? 0 : real.hashCode());
 		result = prime * result + ((titre == null) ? 0 : titre.hashCode());
 		return result;
@@ -109,6 +87,11 @@ public class Film implements Serializable {
 				return false;
 		} else if (!duree.equals(other.duree))
 			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
 		if (real == null) {
 			if (other.real != null)
 				return false;
@@ -120,6 +103,57 @@ public class Film implements Serializable {
 		} else if (!titre.equals(other.titre))
 			return false;
 		return true;
-	}	
+	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public String getGenre() {
+		return Genre;
+	}
+
+	public void setGenre(String genre) {
+		Genre = genre;
+	}
+
+	public String getReal() {
+		return real;
+	}
+
+	public void setReal(String real) {
+		this.real = real;
+	}
+
+	public Integer getDuree() {
+		return duree;
+	}
+
+	public void setDuree(Integer duree) {
+		this.duree = duree;
+	}
+
+	public Integer getAnnee() {
+		return annee;
+	}
+
+	public void setAnnee(Integer annee) {
+		this.annee = annee;
+	}
+	
+	
+		
+	
 }

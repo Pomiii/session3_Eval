@@ -21,7 +21,7 @@ public class FilmController {
 	@Autowired
 	private FilmRepository filmRepo;
 	
-	@GetMapping("/bytitre/ {titre}")
+	@GetMapping("/bytitre/{titre}")
 	public ResponseEntity<?> byTitre(@PathVariable String titre) {
 		List<Film> titres = null;
 		titres = filmRepo.findByTitre(titre);
