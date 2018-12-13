@@ -29,7 +29,7 @@ public class FilmController {
 	 * Retourner tous les films
 	 * @return
 	 */
-	@RequestMapping(value = "/film", method = RequestMethod.GET)
+	@RequestMapping(value = "/films", method = RequestMethod.GET)
 	public ResponseEntity<?> getAllFilms(){
 		List<Film> listeFilms = null;
 		try {

@@ -46,19 +46,36 @@ $(document).ready(function() {
 });
     
 function loadDatatable() {
-	$('#film').DataTable({
+	$('#films').DataTable({
 		"columnDefs": [
 	            {
 	                "targets": [ 0 ],
 	                "sortable" : false
 	            },
 	            {
+	                "targets": [ 1 ],
+	                "visible": true
+	            },
+	            {
+	                "targets": [ 2 ],
+	                "visible": true
+	            },
+	            {
 	                "targets": [ 3 ],
 	                "visible": true
+	            },
+	            {
+	                "targets": [ 4 ],
+	                "visible": true
+	            },
+	            {
+	                "targets": [ 5 ],
+	                "visible": true
 	            }
+	            
 	        ],
 		"ajax" : {
-			url : '/api/film',
+			url : '/api/films',
 			dataSrc : ''
 		},
 		"columns" : [ 
