@@ -1,4 +1,4 @@
-package controller;
+package film.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.Film;
-import repository.FilmRepository;
+import film.model.Film;
+import film.repository.FilmRepository;
 
 @RestController
 @RequestMapping("/api")
