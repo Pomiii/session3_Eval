@@ -1,15 +1,14 @@
 package controller;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import model.Film;
@@ -18,19 +17,125 @@ import repository.FilmRepository;
 @RestController
 @RequestMapping("/api")
 public class FilmController {
-	
-	
+
 	@Autowired
-	private FilmRepository filmRepo;
+	private FilmRepository filmRepository;
 	
-	@GetMapping("/bytitre/{titre}")
-	public ResponseEntity<?> byTitre(@PathVariable String titre) {
-		List<Film> titres = null;
-		titres = filmRepo.findByTitre(titre);
-		return ResponseEntity.status(HttpStatus.CREATED).body(titres);
+	
+	
+	public FilmController() {}
+
+	/**
+	 * Retourner tous les films
+	 * @return
+	 */
+	@RequestMapping(value = "/film", method = RequestMethod.GET)
+	public ResponseEntity<?> getAllFilms(){
+		List<Film> listeFilms = null;
+		try {
+			listeFilms = filmRepository.findAll();
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(listeFilms);
 	}
 	
-	public FilmController() {
+	/**
+	 * rechercher
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/film/{id}", method = RequestMethod.GET)
+	public ResponseEntity<?> getFilm(@PathVariable Integer id){
+		Film film = null;
+				
+		try {
+			film = filmRepository.findById(id);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+		}
+		
+		if(film == null)
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+		
+		return ResponseEntity.status(HttpStatus.OK).body(film);
+	}
+	
+	/**
+	 * ajouter
+	 * @param film
+	 * @return
+	 */
+	@RequestMapping(value = "/film", method = RequestMethod.POST)
+	public ResponseEntity<?> addApprenant(@RequestBody Film film){
+		Film resultFilm = null;
+		String genre = film.getGenre();
+		if((genre == null) || (genre.isEmpty()))
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le prénom !");
+		
+		String titre = film.getTitre();
+		if((titre == null) || (titre.isEmpty()))
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le nom !");
+		
+		try {
+			resultFilm = filmRepository.saveAndFlush(film);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+		}
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(resultFilm);
+	}
+	
+	/**
+	 * Mettre à jour
+	 * @param film
+	 * @param id
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/film/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<?> updateFilm(@RequestBody Film film,@PathVariable Integer id) throws Exception {
+		Film resultFilm = null;
+		String genre = film.getGenre();
+		if((genre == null) || (genre.isEmpty()))
+			
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le prénom !");
+		
+		String titre = film.getTitre();
+		if((titre == null) || (titre.isEmpty()))
+			
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le titre !");
+		
+		try {
+			resultFilm = filmRepository.save(film);
+			
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(resultFilm);
+	}
+	
+	/**
+	 * Détruire
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/film/{id}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteFilm(@PathVariable Integer id){
+		try {
+		filmRepository.deleteById(id);
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+		}
+		
+		return ResponseEntity.status(HttpStatus.OK).body(null);
+	}
+	
+}
+	/**
+	 * public FilmInsert() {
 		// Clean up Database Tables
 		filmRepo.deleteAllInBatch();
 		
@@ -49,6 +154,8 @@ public class FilmController {
 		Collection<Film> films = Arrays.asList(film1, film2, film3, film4, film5, film6, film7, film8, film9, film10);
 		
 		filmRepo.saveAll(films);
-	}
+		
+		
+	}*/
 	
 }

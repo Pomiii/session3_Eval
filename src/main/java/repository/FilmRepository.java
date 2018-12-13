@@ -1,15 +1,12 @@
 package repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 import model.Film;
 
-@Repository
+@RepositoryRestResource
 public interface FilmRepository extends JpaRepository<Film, Integer> {
 
-	public List<Film> findByTitre(String titre);
 	
 }

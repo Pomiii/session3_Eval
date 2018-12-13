@@ -1,10 +1,7 @@
 package film;
 
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-
 
 @SpringBootApplication
 public class FilmApplication {
@@ -14,6 +11,6 @@ public class FilmApplication {
 		SpringApplication.run(FilmApplication.class, args);		
 	}
 	
-
+	
 
 }
