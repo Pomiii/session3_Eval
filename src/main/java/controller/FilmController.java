@@ -43,15 +43,15 @@ public class FilmController {
 	
 	/**
 	 * rechercher
-	 * @param id
+	 * @param titre
 	 * @return
 	 */
-	@RequestMapping(value = "/film/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/film/{titre}", method = RequestMethod.GET)
 	public ResponseEntity<?> getFilm(@PathVariable Integer id){
 		Film film = null;
 				
 		try {
-			film = filmRepository.findById(id);
+			film = filmRepository.getOne(id);
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
 		}
@@ -68,15 +68,15 @@ public class FilmController {
 	 * @return
 	 */
 	@RequestMapping(value = "/film", method = RequestMethod.POST)
-	public ResponseEntity<?> addApprenant(@RequestBody Film film){
+	public ResponseEntity<?> addFilm(@RequestBody Film film){
 		Film resultFilm = null;
 		String genre = film.getGenre();
 		if((genre == null) || (genre.isEmpty()))
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le prénom !");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le genre !");
 		
 		String titre = film.getTitre();
 		if((titre == null) || (titre.isEmpty()))
-			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le nom !");
+			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Il manque le titre !");
 		
 		try {
 			resultFilm = filmRepository.saveAndFlush(film);
@@ -88,7 +88,7 @@ public class FilmController {
 	}
 	
 	/**
-	 * Mettre à jour
+	 * Mets à jour
 	 * @param film
 	 * @param id
 	 * @return
@@ -118,7 +118,7 @@ public class FilmController {
 	}
 	
 	/**
-	 * Détruire
+	 * Supprimer
 	 * @param id
 	 * @return
 	 */
@@ -158,4 +158,4 @@ public class FilmController {
 		
 	}*/
 	
-}
+

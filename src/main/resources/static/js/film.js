@@ -104,7 +104,7 @@ function film_submit(button, httpVerb, table) {
 		type : httpVerb,						// méthode POST ou PUT
 		contentType : "application/json",		// type de données
 		url : url,								// url destinatrice
-		data : JSON.stringify(apprenant),		// on transforme les données de la variable Javascript "apprenant" en format JSON
+		data : JSON.stringify(film),		// on transforme les données de la variable Javascript "film" en format JSON
 		dataType : 'json',						// on précise le mode de transfert
 		cache : false,							// pas de cache sollicité
 		timeout : 600000,						// délai d'attente
@@ -143,7 +143,7 @@ function resetFeedBackFilm() {
 }
 
 /**
- * Méthode qui récupère un apprenant
+ * Méthode qui récupère un film
  * @returns
  */
 function getFilm() {
@@ -182,10 +182,10 @@ function getFilm() {
 }
 
 /**
- * méthode pour supprimer un apprenant
+ * méthode pour supprimer un film
  * @returns
  */
-function deleteFilmt() {
+function deleteFilm() {
 
 	var idFilm = $("#id").val();
 
