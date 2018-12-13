@@ -46,7 +46,7 @@ public class FilmController {
 	 * @param titre
 	 * @return
 	 */
-	@RequestMapping(value = "/film/{titre}", method = RequestMethod.GET)
+	@RequestMapping(value = "/film/{id}", method = RequestMethod.GET)
 	public ResponseEntity<?> getFilm(@PathVariable Integer id){
 		Film film = null;
 				

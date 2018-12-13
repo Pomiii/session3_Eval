@@ -5,7 +5,7 @@ $(document).ready(function() {
 	loadDatatable();
 	
 	// déclaration d'une variable table;
-	var table = $('#film').DataTable();
+	var table = $('#films').DataTable();
 
     // Bouton Afficher
 	$("#btn-get").click(function() {
@@ -121,7 +121,7 @@ function film_submit(button, httpVerb, table) {
 		type : httpVerb,						// méthode POST ou PUT
 		contentType : "application/json",		// type de données
 		url : url,								// url destinatrice
-		data : JSON.stringify(film),		// on transforme les données de la variable Javascript "film" en format JSON
+		data : JSON.stringify(film),			// on transforme les données de la variable Javascript "film" en format JSON
 		dataType : 'json',						// on précise le mode de transfert
 		cache : false,							// pas de cache sollicité
 		timeout : 600000,						// délai d'attente
