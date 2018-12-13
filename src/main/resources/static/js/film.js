@@ -5,11 +5,11 @@ $(document).ready(function() {
 	loadDatatable();
 	
 	// déclaration d'une variable table;
-	var table = $('#FilmTable').DataTable();
+	var table = $('#film').DataTable();
 
-    // fonction appelée lors du click
+    // Bouton Afficher
 	$("#btn-get").click(function() {
-		getFilm(); // affiche le film sélectionné dans la DataTable
+		getFilm(); 
 	});
 	
 	// Bouton Ajouter
@@ -19,12 +19,12 @@ $(document).ready(function() {
     
     // Bouton Supprimer
     $("#btn-delete").click(function() {
-		deleteFilm(); // efface le film en fonction de l'identifiant		
+		deleteFilm(); 		
 	});
 
-    // pour faire le titre du tableau Json
-    var json = "<h3>Server Response format JSON</h3><pre>Titre trouvé :<br>" + JSON.stringify(data, null, 4)+ "</pre>";
-    $('#filmTable tbody').on( 'dblclick', 'tr', function () {
+    // pour faire un tableau Json
+    var json = "<h3>Server Response format JSON</h3><pre>film trouvé :<br>" + JSON.stringify(data, null, 4)+ "</pre>";
+    $('#film tbody').on( 'dblclick', 'tr', function () {
             	let dataRow = table.row( this ).data();
                 $("#resultat").html(json);
                 $("#id").val(data.id);
@@ -46,7 +46,7 @@ $(document).ready(function() {
 });
     
 function loadDatatable() {
-	$('#filmTable').DataTable({
+	$('#film').DataTable({
 		"columnDefs": [
 	            {
 	                "targets": [ 0 ],
@@ -58,7 +58,7 @@ function loadDatatable() {
 	            }
 	        ],
 		"ajax" : {
-			url : '/api/films',
+			url : '/api/film',
 			dataSrc : ''
 		},
 		"columns" : [ 
