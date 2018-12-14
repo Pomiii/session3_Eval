@@ -13,6 +13,7 @@ public class FilmApplication implements CommandLineRunner{
 	
 	@Autowired
 	private FilmRepository filmRepository;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(FilmApplication.class, args);		
 	}

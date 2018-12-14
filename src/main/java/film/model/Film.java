@@ -21,32 +21,28 @@ public class Film implements Serializable {
 	private Integer id;
 	private String titre;
 	private String genre;
-	private String real;
+	private String reali;
 	private Integer duree;
 	private Integer annee;
 	
-	public Film(Integer id, String titre, String genre, String real, Integer duree, Integer annee) {
+	public Film(Integer id, String titre, String genre, String reali, Integer duree, Integer annee) {
 		super();
 		this.id = id;
 		this.titre = titre;
 		this.genre = genre;
-		this.real = real;
+		this.reali = reali;
 		this.duree = duree;
 		this.annee = annee;
 	}
 
-	
-	
 	public Film() {
 		super();
 		
 	}
 
-
-
 	@Override
 	public String toString() {
-		return "Film [id=" + id + ", titre=" + titre + ", genre=" + genre + ", real=" + real + ", duree=" + duree
+		return "Film [id=" + id + ", titre=" + titre + ", genre=" + genre + ", reali=" + reali + ", duree=" + duree
 				+ ", annee=" + annee + "]";
 	}
 
@@ -58,7 +54,7 @@ public class Film implements Serializable {
 		result = prime * result + ((annee == null) ? 0 : annee.hashCode());
 		result = prime * result + ((duree == null) ? 0 : duree.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((real == null) ? 0 : real.hashCode());
+		result = prime * result + ((reali == null) ? 0 : reali.hashCode());
 		result = prime * result + ((titre == null) ? 0 : titre.hashCode());
 		return result;
 	}
@@ -92,10 +88,10 @@ public class Film implements Serializable {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (real == null) {
-			if (other.real != null)
+		if (reali == null) {
+			if (other.reali != null)
 				return false;
-		} else if (!real.equals(other.real))
+		} else if (!reali.equals(other.reali))
 			return false;
 		if (titre == null) {
 			if (other.titre != null)
@@ -129,12 +125,12 @@ public class Film implements Serializable {
 		this.genre = genre;
 	}
 
-	public String getReal() {
-		return real;
+	public String getReali() {
+		return reali;
 	}
 
-	public void setReal(String real) {
-		this.real = real;
+	public void setReali(String reali) {
+		this.reali = reali;
 	}
 
 	public Integer getDuree() {
